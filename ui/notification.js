@@ -1,6 +1,7 @@
-function showNotification(message) {
+function showNotification(messageKey) {
+    console.debug("Showing notification: ", messageKey);
     const notification = document.createElement("div");
-    notification.textContent = message;
+    notification.textContent = browser.i18n.getMessage(messageKey);
     notification.style.cssText = `
       position: fixed;
       top: 20px;

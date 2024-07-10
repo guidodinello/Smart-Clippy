@@ -15,10 +15,17 @@
 //     }
 // }
 
-import { FORMATS } from "./defaults.js";
-import { showNotification } from "./notification.js";
+// import { FORMATS } from "./defaults.js";
+// import { showNotification } from "./ui/notification.js";
+
+console.debug("content.js loaded");
+
+function showNotification(key) {
+    return "placeholder";
+}
 
 function getFormattedLink(title, url, selectedText) {
+    console.debug("Getting formatted link");
     return browser.storage.sync
         .get(["copyFormat", "customFormat"])
         .then((result) => {
@@ -52,19 +59,26 @@ function getFormattedLink(title, url, selectedText) {
 }
 
 function copyPageInfo() {
+    console.debug("Copying page info to clipboard");
     const title = document.title;
     const url = window.location.href;
     const selectedText = window.getSelection().toString().trim();
 
-    getFormattedLink(title, url, selectedText).then((formattedLink) => {
-        navigator.clipboard.writeText(formattedLink);
-        showNotification("Link copied!");
-    });
+    getFormattedLink(title, url, selectedText)
+        .then((formattedLink) => {
+            navigator.clipboard.writeText(formattedLink);
+            showNotification("LINK_COPY_SUCCESS");
+        })
+        .catch((error) => {
+            console.error("Error copying link: ", error);
+            showNotification("LINK_COPY_ERROR");
+        });
 }
 
 document.addEventListener("keydown", (event) => {
+    console.debug("Keydown event received");
     if (event.ctrlKey && event.shiftKey && event.key === "V") {
-        console.log("Keydown event received");
-        copyPageInfo();
+        console.debug("Keydown event received");
+        navigator.clipboard.writeText(copyPageInfo());
     }
 });

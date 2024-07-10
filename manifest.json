@@ -4,7 +4,7 @@
     "version": "1.0",
     "homepage_url": "https://github.com/guidodinello/smart-clippy",
     "description": "Copies tab title and URL to clipboard in the markdown hyperlink style.",
-    "permissions": ["activeTab", "clipboardWrite"],
+    "permissions": ["activeTab", "clipboardWrite", "storage"],
     "browser_action": {
         "default_popup": "popup/popup.html",
         "default_icon": {
@@ -27,5 +27,6 @@
         "gecko": {
             "id": "{a129b68f-faa5-4b1c-a71f-c0e5c2245ab9}"
         }
-    }
+    },
+    "default_locale": "en"
 }
