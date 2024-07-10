@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Smart Clippy Options</title>
+    </head>
+    <body>
+        <h1>Smart Clippy Options</h1>
+        <label>
+            Copy format:
+            <select id="copyFormat">
+                <option value="markdown">Markdown</option>
+                <option value="html">HTML</option>
+                <option value="plaintext">Plain Text</option>
+                <option value="custom">Custom</option>
+            </select>
+        </label>
+        <div id="customFormatDiv" style="display: none">
+            <input
+                type="text"
+                id="customFormat"
+                placeholder="Custom format (use {title} and {url})" />
+        </div>
+        <button id="save">Save</button>
+        <script src="options.js"></script>
+    </body>
+</html>

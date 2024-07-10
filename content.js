@@ -15,14 +15,56 @@
 //     }
 // }
 
-function getYouTubeVideoDetails() {
-    const videoTitle = document.head.querySelector("title").innerText;
-    const videoUrl = window.location.href;
-    return `[${videoTitle}](${videoUrl})`;
+import { FORMATS } from "./defaults.js";
+import { showNotification } from "./notification.js";
+
+function getFormattedLink(title, url, selectedText) {
+    return browser.storage.sync
+        .get(["copyFormat", "customFormat"])
+        .then((result) => {
+            const format = result.copyFormat || FORMATS.MARKDOWN;
+            const customFormat = result.customFormat || "";
+
+            let formattedLink = "";
+            switch (format) {
+                case FORMATS.MARKDOWN:
+                    formattedLink = `[${title}](${url})`;
+                    break;
+                case FORMATS.HTML:
+                    formattedLink = `<a href="${url}">${title}</a>`;
+                    break;
+                case FORMATS.PLAINTEXT:
+                    formattedLink = `${title} - ${url}`;
+                    break;
+                case FORMATS.CUSTOM:
+                    formattedLink = customFormat
+                        .replace("{title}", title)
+                        .replace("{url}", url);
+                    break;
+            }
+
+            if (selectedText) {
+                formattedLink += `\n\n> ${selectedText}`;
+            }
+
+            return formattedLink;
+        });
+}
+
+function copyPageInfo() {
+    const title = document.title;
+    const url = window.location.href;
+    const selectedText = window.getSelection().toString().trim();
+
+    getFormattedLink(title, url, selectedText).then((formattedLink) => {
+        navigator.clipboard.writeText(formattedLink);
+        showNotification("Link copied!");
+    });
 }
 
 document.addEventListener("keydown", (event) => {
     if (event.ctrlKey && event.shiftKey && event.key === "V") {
-        navigator.clipboard.writeText(getYouTubeVideoDetails());
+        console.log("Keydown event received");
+        copyPageInfo();
     }
 });

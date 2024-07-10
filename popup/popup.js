@@ -1,4 +1,3 @@
-// popup.js
 document.getElementById("copy-button").addEventListener("click", async () => {
     let [tab] = await browser.tabs.query({ active: true, currentWindow: true });
 
