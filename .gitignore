@@ -1,7 +1,6 @@
 node_modules
 
 # project specifics
-icons/icons.js
 paperclip.png
 .env
 web-ext-artifacts
