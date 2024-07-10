@@ -1,4 +1,15 @@
-import { FORMATS } from "../defaults.js";
+console.debug("options.js loaded");
+
+// ver como eliminar esta duplicacion de codigo.
+// no puedo usar export en defaults.js e importarlo aca porque por el content.js me salta export should be at top level.
+const FORMATS = Object.freeze({
+    MARKDOWN: "markdown",
+    HTML: "html",
+    PLAINTEXT: "plaintext",
+    CUSTOM: "custom",
+});
+//pasa lo mismo para showNotification
+// capaz esto se pueda arreglar usando un bundler
 
 function saveOptions(e) {
     e.preventDefault();
@@ -34,7 +45,10 @@ function toggleCustomFormat() {
 }
 
 document.addEventListener("DOMContentLoaded", restoreOptions);
-document.getElementById("save").addEventListener("click", saveOptions);
+document.getElementById("save").addEventListener("click", (e) => {
+    saveOptions(e);
+    //showNotification("optionsSaved");
+});
 document
     .getElementById("copyFormat")
     .addEventListener("change", toggleCustomFormat);

@@ -8,6 +8,7 @@
         <label>
             Copy format:
             <select id="copyFormat">
+                <!-- maybe read programatically or from a config file. to sync with FORMATS object -->
                 <option value="markdown">Markdown</option>
                 <option value="html">HTML</option>
                 <option value="plaintext">Plain Text</option>
@@ -20,7 +21,9 @@
                 id="customFormat"
                 placeholder="Custom format (use {title} and {url})" />
         </div>
-        <button id="save">Save</button>
-        <script src="options.js"></script>
+        <button id="save" style="width: fit-content">Save</button>
+
+        <script type="module" src="../_locales/localize.js"></script>
+        <script type="module" src="./options.js"></script>
     </body>
 </html>

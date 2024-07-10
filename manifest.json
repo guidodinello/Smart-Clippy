@@ -14,13 +14,13 @@
         }
     },
     "options_ui": {
-        "page": "options.html",
+        "page": "options/options.html",
         "open_in_tab": false
     },
     "content_scripts": [
         {
             "matches": ["<all_urls>"],
-            "js": ["content.js"]
+            "js": ["defaults.js", "ui/notification.js", "content.js"]
         }
     ],
     "browser_specific_settings": {

@@ -1,28 +1,23 @@
-// content.js
+/*
+"commands": {
+    "copy-video-link": {
+        "suggested_key": {
+            "default": "Ctrl+Shift+V"
+        },
+        "description": "Copy YouTube video title and URL to clipboard. [title](url)"
+    },
+    "copy-video-link-desription": {
+        "suggested_key": {
+            "default": "Ctrl+Shift+Z"
+        },
+        "description": "Copy [title](url)\nDescription to clipboard"
+    }
+}
+*/
 
-// "commands": {
-//     "copy-video-link": {
-//         "suggested_key": {
-//             "default": "Ctrl+Shift+V"
-//         },
-//         "description": "Copy YouTube video title and URL to clipboard. [title](url)"
-//     },
-//     "copy-video-link-desription": {
-//         "suggested_key": {
-//             "default": "Ctrl+Shift+Z"
-//         },
-//         "description": "Copy [title](url)\nDescription to clipboard"
-//     }
-// }
-
-// import { FORMATS } from "./defaults.js";
-// import { showNotification } from "./ui/notification.js";
+// https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts
 
 console.debug("content.js loaded");
-
-function showNotification(key) {
-    return "placeholder";
-}
 
 function getFormattedLink(title, url, selectedText) {
     console.debug("Getting formatted link");
@@ -79,6 +74,6 @@ document.addEventListener("keydown", (event) => {
     console.debug("Keydown event received");
     if (event.ctrlKey && event.shiftKey && event.key === "V") {
         console.debug("Keydown event received");
-        navigator.clipboard.writeText(copyPageInfo());
+        copyPageInfo();
     }
 });
