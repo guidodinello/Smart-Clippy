@@ -1,26 +1,30 @@
 {
     "extensionName": {
         "message": "Smart Clippy",
-        "description": "Name of the extension"
+        "description": "Nombre de la extension"
     },
     "extensionDescription": {
-        "message": "Copies tab title and URL to clipboard in various formats.",
-        "description": "Description of the extension"
+        "message": "Copia el titulo de la pestana y la URL en varios formatos.",
+        "description": "Descripcion de la extension"
     },
     "LINK_COPY_SUCCESS": {
-        "message": "Link copied!",
-        "description": "Notification message when a link is copied"
+        "message": "Link copiado!",
+        "description": "Mensaje de Notificacion cuando un link es copiado satisfactoriamente"
     },
     "LINK_COPY_ERROR": {
-        "message": "Failed to copy link. Check the console for more details.",
-        "description": "Notification message when a link fails to copy"
+        "message": "Error al copiar link. Comprueba la consola para mas detalles.",
+        "description": "Mensaje de Notificacion cuando un link no pudo ser copiado"
     },
     "copyButton": {
-        "message": "Copy Link",
-        "description": "Text on the copy button"
+        "message": "Copiar Link",
+        "description": "Texto en el boton de copiar"
     },
     "openOptions": {
-        "message": "Options",
-        "description": "Text on the options button"
+        "message": "Opciones",
+        "description": "Texto en el boton de opciones"
+    },
+    "optionsSaved": {
+        "message": "Configuracion actualizada!",
+        "description": "Mensaje de Notificacion cuando la configuracion es guardada"
     }
 }
