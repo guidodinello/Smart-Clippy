@@ -1,0 +1,30 @@
+{
+    "extensionName": {
+        "message": "Smart Clippy",
+        "description": "Name of the extension"
+    },
+    "extensionDescription": {
+        "message": "Copies tab title and URL to clipboard in various formats.",
+        "description": "Description of the extension"
+    },
+    "LINK_COPY_SUCCESS": {
+        "message": "Link copied!",
+        "description": "Notification message when a link is copied"
+    },
+    "LINK_COPY_ERROR": {
+        "message": "Failed to copy link. Check the console for more details.",
+        "description": "Notification message when a link fails to copy"
+    },
+    "copyButton": {
+        "message": "Copy Link",
+        "description": "Text on the copy button"
+    },
+    "openOptions": {
+        "message": "Options",
+        "description": "Text on the options button"
+    },
+    "optionsSaved": {
+        "message": "Options saved!",
+        "description": "Notification message when options are saved"
+    }
+}
