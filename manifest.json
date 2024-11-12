@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "Smart Clippy",
-    "version": "1.1",
+    "version": "2.0",
     "homepage_url": "https://github.com/guidodinello/smart-clippy",
     "description": "Copies tab title and URL to clipboard in the markdown hyperlink style.",
     "icons": {
@@ -12,8 +12,7 @@
     "permissions": [
         "activeTab",
         "clipboardWrite",
-        "storage",
-        "scripting"
+        "storage"
     ],
     "action": {
         "default_popup": "popup/popup.html",
@@ -32,8 +31,9 @@
             "matches": ["<all_urls>"],
             "js": [
                 "browser-polyfill.js",
-                "defaults.js", 
                 "ui/notification.js",
+                "defaults.js",
+                "utils.js",
                 "content.js"
             ]
         }
