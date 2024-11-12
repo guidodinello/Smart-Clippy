@@ -1,7 +1,13 @@
 {
-  "devDependencies": {
-    "commander": "^12.1.0",
-    "sharp": "^0.33.4",
-    "web-ext": "^8.0.0"
-  }
+    "devDependencies": {
+        "commander": "^12.1.0",
+        "sharp": "^0.33.4",
+        "web-ext": "^8.0.0"
+    },
+    "scripts": {
+        "test": "web-ext run --verbose --devtools",
+        "build": "web-ext build --overwrite-dest",
+        "lint": "web-ext lint"
+    }
 }
+
